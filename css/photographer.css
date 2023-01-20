@@ -1,0 +1,400 @@
+#contact_modal {
+    display: none;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+/* Header */
+.photograph-header {
+    background-color: #FAFAFA;
+    height: 300px;
+    margin: 0 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.photograph-header h2 {
+    color: #D3573C;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 83px;
+}
+
+.photograph-header h3 {
+    color: #901C1C;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+}
+
+.photograph-header h4 {
+    color: #000000;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.photograph-header img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.contact_button {
+
+    font-size: 15px;
+    /* font-weight: bold; */
+    color: white;
+    padding: 5px;
+    width: fit-content;
+    height: 30px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact_button:hover {
+    color: #000;
+    background-color: #DB8876;
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    justify-items: center;
+}
+
+.thumbnail {
+
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    width: 350px;
+    height: 350px;
+    justify-content: space-between;
+
+}
+
+.thumbnail:hover img {
+    transform: scale(1.05);
+
+}
+
+.thumbnail:hover video {
+    transform: scale(1.05);
+}
+
+.thumbnail video {
+    margin: auto;
+    max-width: 350px;
+    max-height: 300px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.thumbnail img {
+    margin: auto;
+    max-width: 350px;
+    max-height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.legend {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.legendText {
+    color: #901C1C;
+    font-size: 24px;
+    line-height: 31px;
+}
+
+.nblove {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Nb {
+    color: #901C1C;
+    font-size: 24px;
+    line-height: 31px;
+    font-weight: 500;
+}
+
+.love i {
+    color: #911C1C;
+    font-size: 24px;
+    line-height: 31px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.checked {
+    font-weight: 900 !important;
+}
+
+/* Cartouche */
+.cartouche {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 10;
+    background-color: #DB8876;
+    color: #000;
+    width: 380px;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.cartouche:hover {
+    opacity: 0.3;
+}
+
+.likes {
+    display: flex;
+    align-items: center;
+}
+
+.Nb_likes {
+    margin-right: 5px;
+}
+
+/* Modal Form */
+
+#contact_modal {
+    z-index: 15;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.modal {
+    max-height: 90%;
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+}
+
+.modal header {
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 10px;
+}
+
+.modal header img {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.modal header h2 {
+    font-size: 25px;
+    font-weight: normal;
+    text-align: left;
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    color: #312E2E;
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: self-start;
+    margin-bottom: 10px;
+}
+
+form input {
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+form textarea {
+    height: 100px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    overflow: auto;
+    font-size: 18px;
+    resize: none;
+}
+
+.invalid {
+    background: red;
+    outline-style: double;
+    outline: #fff;
+}
+
+/* Section tri */
+
+.sort_container {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+label {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+select {
+    background: #911C1C;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    height: 69px;
+    width: 170px;
+    margin-left: 10px;
+}
+
+option {
+    font-weight: 700;
+    font-size: 18px;
+    height: 69px;
+}
+
+/* Lightbox */
+
+.lightbox_container {
+    position: relative;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(229, 229, 229, 0.5);
+    z-index: 15;
+    align-content: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.close {
+    position: absolute;
+    font-size: 30px;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;
+}
+
+.media_container {
+    background-color: rgba(229, 229, 229, 0.9);
+    position: absolute;
+    width: 95%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.media {
+    display: inline-block;
+}
+
+.media img,
+.media video {
+    position: absolute;
+    max-width: 95%;
+    max-height: 90%;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border: solid 2px black;
+    border-radius: 5px;
+}
+
+.lightbox_legend {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+}
+
+.previous i {
+    position: absolute;
+    font-size: 30px;
+    cursor: pointer;
+    top: 50%;
+    left: 50px;
+}
+
+.next i {
+    position: absolute;
+    font-size: 30px;
+    cursor: pointer;
+    top: 50%;
+    right: 50px;
+}
+
+.show {
+    display: block;
+    animation: LightboxShow 0.3s ease-in-out forwards;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes LightboxShow {
+    100% {
+        opacity: 1;
+    }
+
+}
