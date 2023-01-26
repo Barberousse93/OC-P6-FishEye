@@ -1,17 +1,22 @@
 function photographerFactory(data) {
+    // Récupération des données de "data"
     const { name, portrait, city, country, tagline, price, id } = data;
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
+        // Constitution du DOM
         const tagA = document.createElement('a');
         const linkNewPage = `./photographer.html?id=${id}`;
         tagA.setAttribute('href', linkNewPage);
+        tagA.setAttribute('tabindex', "0")
 
         const article = document.createElement('article');
         tagA.appendChild(article);
+        tagA.setAttribute('role', 'navigation')
         const img = document.createElement('img');
         img.setAttribute("src", picture);
-        img.setAttribute('alt', 'Portrait de ' + name)
+        img.setAttribute('alt', 'Portrait de ' + name);
+        img.setAttribute('aria-label', 'Naviguer vers la page de ' + name);
         const h2 = document.createElement('h2');
         const h3 = document.createElement('h3');
         const h4 = document.createElement('h4');
@@ -29,11 +34,12 @@ function photographerFactory(data) {
     }
 
     function makeHeader() {
-
+        // Constitution du DOM du header
         // Section 'header'
-        const photographHeader = document.createElement('section')
+        const photographHeader = document.createElement('section');
         // main.appendChild(photographHeader);
-        photographHeader.classList.add('photograph-header')
+        photographHeader.classList.add('photograph-header');
+        photographHeader.setAttribute('tabindex', "0");
 
         // Bloc 'identité'
         const photographerIdentity = document.createElement('div');
@@ -62,6 +68,9 @@ function photographerFactory(data) {
         photographHeader.appendChild(contact_button);
         contact_button.classList.add('contact_button');
         contact_button.setAttribute('onclick', 'displayModal()');
+        contact_button.setAttribute('type', 'button');
+        contact_button.setAttribute('role', 'button');
+        contact_button.setAttribute('aria-label', 'Ouvrir le formulaire de contact');
         contact_button.innerHTML = 'Contactez-moi';
 
         // Portrait du Photographe

@@ -11,30 +11,32 @@
 </head>
 
 <body>
-  <div class="lightbox_container hidden">
+  <div class="lightbox_container hidden" tabindex="-1">
     <div class="media_container">
-      <div class="close"><i class="fa-solid fa-xmark" role="button" aria-label="Fermer la lightbox"></i></div>
-      <div class="previous"><i class="fa-solid fa-chevron-left" role="button"
+      <div class="close" role="button"><i class=" fa-solid fa-xmark" aria-label="Fermer la lightbox" tabindex="0"></i>
+      </div>
+      <div class="previous"><i class="fa-solid fa-chevron-left" role="button" tabindex="0"
           aria-label="Afficher le média précédent"></i></div>
-      <div class="media"> </div>
-      <div class="next"><i class="fa-solid fa-chevron-right" role="button" aria-label="Afficher le média suivant"></i>
+      <div class="media" tabindex="-1"> </div>
+      <div class="next"><i class="fa-solid fa-chevron-right" role="button" aria-label="Afficher le média suivant"
+          tabindex="0"></i>
       </div>
       <div class="lightbox_legend"></div>
     </div>
   </div>
 
-  <header>
-    <a href="index.html">
-      <img src="assets/images/logo.png" class="logo" alt="Logo FishEye">
+  <header role="banner">
+    <a href="index.html" tabindex="0" role="navigation">
+      <img aria-label="Retour à la page d'accueil" src="assets/images/logo.png" class="logo" alt="Logo FishEye">
     </a>
   </header>
 
-  <div class="loader_container">
+  <div class="loader_container" tabindex="-1">
     <span class="loader"></span>
   </div>
 
   <main id="main">
-    <div class="cartouche">
+    <div class="cartouche" tabindex="-1" aria-hidden="true">
       <div class="likes">
         <p class="Nb_likes">0</p>
         <i class="fa-solid fa-heart"></i>
@@ -42,31 +44,38 @@
       <div class="tarif"></div>
     </div>
   </main>
-  <div id="contact_modal">
-    <div class="modal">
+  <div id="contact_modal" tabindex="-1">
+    <div class="modal" role="dialog">
       <header>
         <h2>Contactez-moi</h2>
-        <img tabindex="0" src="assets/icons/close.svg" onclick="closeModal()" onkeydown="closeModal()"
-          alt="Fermer le formulaire">
+        <img tabindex="0" src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire">
       </header>
       <form novalidate>
         <div>
           <label for='firstName'>Prénom</label>
-          <input name='firstName' id="firstName" type='text' minlength=2>
+          <input name='firstName' id="firstName" type='text' minlength=2 aria-required="true">
+          <span id="firstNameErr" class="formErr hidden">Veuillez entrer votre prénom
+            (minimum 2 caractères). </span>
         </div>
         <div>
           <label for='lastName'>Nom</label>
-          <input name='lastName' id="lastName" type='text' minlength=2>
+          <input name='lastName' id="lastName" type='text' minlength=2 aria-required="true">
+          <span id="lastNameErr" class="formErr hidden">Veuillez entrer votre nom (minimum
+            2 caractères). </span>
         </div>
         <div>
           <label for='eMail'>E-mail</label>
-          <input name='eMail' id='eMail' type='email' required>
+          <input name='eMail' id='eMail' type='email' aria-required="true">
+          <span id="eMailErr" class="formErr hidden">Veuillez entrer une adresse mail
+            valide. </span>
         </div>
         <div>
           <label for='message'>Votre message : </label>
-          <textarea name='message' id='message' maxlength=1000></textarea>
+          <textarea name='message' id='message' maxlength=1000 aria-required="true"></textarea>
+          <span id="messageErr" class="formErr hidden">Veuillez entrer votre message
+            (minimum 20 caractères). </span>
         </div>
-        <button class="contact_button" id="contact_button">Envoyer</button>
+        <button type="button" class="contact_button" id="contact_button">Envoyer</button>
       </form>
     </div>
   </div>

@@ -87,7 +87,16 @@
     width: 350px;
     height: 350px;
     justify-content: space-between;
+    transform: translateX(500px);
+    opacity: 0;
+    animation: ComeBack 1s ease-in-out forwards
+}
 
+@keyframes ComeBack {
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .thumbnail:hover img {
@@ -103,6 +112,7 @@
     margin: auto;
     max-width: 350px;
     max-height: 300px;
+    border-radius: 5px;
     transition: all 0.3s;
     cursor: pointer;
 }
@@ -280,8 +290,30 @@ form textarea {
 
 .invalid {
     background: red;
-    outline-style: double;
-    outline: #fff;
+    color: #fff;
+    animation: shake 0.2s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(0eg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 /* Section tri */
@@ -393,7 +425,7 @@ option {
 
 .show {
     display: block;
-    animation: LightboxShow 0.3s ease-in-out forwards;
+    animation: LightboxShow 1s ease-in-out forwards;
 }
 
 .hidden {
@@ -401,6 +433,10 @@ option {
 }
 
 @keyframes LightboxShow {
+    50% {
+        scale: 1.5;
+    }
+
     100% {
         opacity: 1;
     }

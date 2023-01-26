@@ -1,7 +1,8 @@
+// Masquage du loader quand la page est chargée.
 window.onload = () => {
-    const loader = document.querySelector('.loader_container');
-    loader.classList.add('hidden');
-}
+    const loader = document.querySelector(".loader_container");
+    loader.classList.add("hidden");
+};
 
 async function getPhotographers() {
 
@@ -10,12 +11,12 @@ async function getPhotographers() {
 
     // }
 
-    // //fonciton anonyme : contexte propre (this de la fonction)
+    // //fonciton anonyme : contexte propre ("this" de la fonction)
     // let test=function (parametre){
 
     // }
 
-    // //fonciton fléchée : récupère la contexte précédent (this de la classe)
+    // //fonciton fléchée : récupère la contexte précédent ("this" de la classe)
     // let test=(parametre)=>{
 
     // }
@@ -39,9 +40,9 @@ async function getPhotographers() {
 
 }
 
-async function displayData(photographers) {
+function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
-    // console.log('photographers' + photographers);
+    // Cration des cards des photogrpahes
     photographers.forEach((photographer) => {
         const photographerModel = photographerFactory(photographer);
         const userCardDOM = photographerModel.getUserCardDOM();
