@@ -1,11 +1,13 @@
+/* eslint-disable space-before-function-paren */
+/* eslint-disable no-undef */
+/* eslint-disable indent */
 // Masquage du loader quand la page est chargée.
 window.onload = () => {
-    const loader = document.querySelector(".loader_container");
-    loader.classList.add("hidden");
-};
+    const loader = document.querySelector('.loader_container')
+    loader.classList.add('hidden')
+}
 
 async function getPhotographers() {
-
     // //Fonction nommée
     //     function test(parametre){
 
@@ -22,47 +24,41 @@ async function getPhotographers() {
     // }
 
     try {
-        let photographers = [];
-        const JSONFile = "data/photographers.json";
+        let photographers = []
+        const JSONFile = 'data/photographers.json'
 
-        let res = await fetch(JSONFile);
+        const res = await fetch(JSONFile)
         if (res.ok) {
-            let data = await res.json();
-            photographers = data.photographers;
+            const data = await res.json()
+            photographers = data.photographers
         }
-        return photographers;
+        return photographers
+    } catch (err) {
+        console.log(err)
+        return new Error(err)
     }
-
-    catch (err) {
-        console.log(err);
-        return new Error(err);
-    }
-
 }
 
 function displayData(photographers) {
-    const photographersSection = document.querySelector(".photographer_section");
+    const photographersSection = document.querySelector('.photographer_section')
     // Cration des cards des photogrpahes
     photographers.forEach((photographer) => {
-        const photographerModel = photographerFactory(photographer);
-        const userCardDOM = photographerModel.getUserCardDOM();
-        photographersSection.appendChild(userCardDOM);
-    });
+        const photographerModel = photographerFactory(photographer)
+        const userCardDOM = photographerModel.getUserCardDOM()
+        photographersSection.appendChild(userCardDOM)
+    })
 }
 
 async function init() {
-
     // pour utilisation de Promise //
     // getPhotographers().then((photographers)=>{
     //     displayData(photographers);
     // };
 
-
     // Récupère les datas des photographes
-    const photographers = await getPhotographers();
+    const photographers = await getPhotographers()
     // Affiche les Photographes
-    displayData(photographers);
+    displayData(photographers)
 }
 
-init();
-
+init()

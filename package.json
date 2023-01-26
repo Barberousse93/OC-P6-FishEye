@@ -1,0 +1,26 @@
+{
+  "name": "oc-p6-fisheye",
+  "version": "1.0.0",
+  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barberousse93/OC-P6-FishEye.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Barberousse93/OC-P6-FishEye/issues"
+  },
+  "homepage": "https://github.com/Barberousse93/OC-P6-FishEye#readme",
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1"
+  }
+}
