@@ -1,12 +1,12 @@
 /* eslint-disable indent */
 /* eslint-disable camelcase */
 // eslint-disable-next-line no-unused-vars
-function photographerFactory(data) {
+function photographerFactory (data) {
     // Récupération des données de "data"
     const { name, portrait, city, country, tagline, price, id } = data
     const picture = `assets/photographers/${portrait}`
 
-    function getUserCardDOM() {
+    function getUserCardDOM () {
         // Constitution du DOM
         const tagA = document.createElement('a')
         const linkNewPage = `./photographer.html?id=${id}`
@@ -36,7 +36,7 @@ function photographerFactory(data) {
         return (tagA)
     }
 
-    function makeHeader() {
+    function makeHeader () {
         // Constitution du DOM du header
         // Section 'header'
         const photographHeader = document.createElement('section')
