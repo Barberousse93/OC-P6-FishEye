@@ -1,13 +1,14 @@
+/* eslint-disable space-before-function-paren */
 /* eslint-disable camelcase */
 /* eslint-disable no-undef */
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable indent */
 
 // eslint-disable-next-line no-unused-vars
-function galleryFactory (data, index) {
+function galleryFactory(data, index) {
     const { id, photographerId, image, title, date, video, price, likes } = data
 
-    function getMediaCardDOM () {
+    function getMediaCardDOM() {
         // gestion media : photo ou video
         if (data.hasOwnProperty('image')) {
             return getImage()
@@ -19,7 +20,7 @@ function galleryFactory (data, index) {
         }
     }
 
-    function getImage () {
+    function getImage() {
         /*******************************************/
         const Classicone1 = 'fa-regular'
         const Classicone2 = 'fa-heart'
@@ -94,7 +95,7 @@ function galleryFactory (data, index) {
         return thumbnail
     }
 
-    function getVideo () {
+    function getVideo() {
         /*******************************************/
         const Classicone1 = 'fa-regular'
         const Classicone2 = 'fa-heart'
@@ -174,7 +175,7 @@ function galleryFactory (data, index) {
 
     //* Gestion de la LightBox *//
 
-    function lightBoxVideo (index) {
+    function lightBoxVideo(index) {
         // Navigation au clavier : touches "Flèche gauche" et "Fleche droite"
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' && lightbox.classList.contains('show')) {
@@ -318,7 +319,7 @@ function galleryFactory (data, index) {
         GestFocus()
     }
 
-    function lightBoxPhoto (index) {
+    function lightBoxPhoto(index) {
         // Navigation au clavier : Fleches gauche/droite
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' && lightbox.classList.contains('show')) {
@@ -460,7 +461,7 @@ function galleryFactory (data, index) {
     }
 }
 
-function GestFocus () {
+function GestFocus() {
     /* Navigation à la souris (utilisaiton de la touche "TAB" et "Shift + TAB") :
     "boucle" sur les contrôles */
     const media_modal = document.querySelector('.lightbox_container')
@@ -470,7 +471,7 @@ function GestFocus () {
     const lastElement = focusableElements[focusableElements.length - 1]
     firstElement.focus()
     media_modal.addEventListener('keydown', tabKey)
-    function tabKey (e) {
+    function tabKey(e) {
         const isTabPressed = e.key === 'Tab'
         if (!isTabPressed) {
             return
