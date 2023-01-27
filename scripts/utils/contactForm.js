@@ -1,7 +1,7 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-useless-escape */
 /* eslint-disable indent */
 /* eslint-disable space-before-function-paren */
-/* eslint-disable camelcase */
 GestFocusContact()
 
 // Affichage de la fenétre
@@ -43,6 +43,11 @@ close_Modal.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         closeModal()
     }
+})
+
+// Navigation à la souris
+close_Modal.addEventListener('click', (e) => {
+    closeModal()
 })
 
 function RAZ() {
