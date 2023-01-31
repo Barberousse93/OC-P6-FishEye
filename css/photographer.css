@@ -54,9 +54,11 @@
     font-size: 15px;
     /* font-weight: bold; */
     color: white;
+    font-size: 18px;
+    font-weight: 700;
     padding: 5px;
-    width: fit-content;
-    height: 30px;
+    width: 170px;
+    height: 70px;
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
@@ -153,7 +155,7 @@
     font-weight: 500;
 }
 
-.love i {
+.love span {
     color: #911C1C;
     font-size: 24px;
     line-height: 31px;
@@ -316,40 +318,6 @@ form textarea {
     }
 }
 
-/* Section tri */
-
-.sort_container {
-    display: flex;
-    margin: auto;
-    justify-content: space-between;
-    width: 90%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-label {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 23px;
-}
-
-select {
-    background: #911C1C;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 18px;
-    height: 69px;
-    width: 170px;
-    margin-left: 10px;
-}
-
-option {
-    font-weight: 700;
-    font-size: 18px;
-    height: 69px;
-}
-
 /* Lightbox */
 
 .lightbox_container {
@@ -405,7 +373,7 @@ option {
     left: 10px;
 }
 
-.previous i {
+.previous span {
     position: absolute;
     font-size: 30px;
     cursor: pointer;
@@ -414,7 +382,7 @@ option {
     z-index: 10;
 }
 
-.next i {
+.next span {
     position: absolute;
     font-size: 30px;
     cursor: pointer;

@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sortBar {
+    position: relative;
+    margin: auto;
+    width: 80%;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 12;
+}
+
+#tri,
+#ordre {
+    width: 300px;
+    height: 70px;
+    background-color: transparent;
+    margin: 5px;
+}
+
+label {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+#listeTri,
+#listeOrdre {
+    position: relative;
+    left: 50%;
+}
+
+.hidden {
+    display: none;
+}
+
+#choixTri::after,
+#choixOrdre::after {
+    /* Chevron bas */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    content: "\f078";
+    padding-left: 30px;
+}
+
+#listeTri li,
+#listeOrdre li {
+    list-style: none;
+}
+
+#listeTri li:not(:last-child),
+#listeOrdre li:not(:last-child) {
+    border-bottom: 2px solid white;
+}
+
+.entete {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    align-items: center;
+}
+
+.itemListe {
+    background: #911C1C;
+    text-align: center;
+    line-height: 69px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    height: 69px;
+    width: 170px;
+}
+
+.itemListe:hover {
+    background-color: #DB8876;
+}

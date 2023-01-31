@@ -3,6 +3,7 @@
 
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/tri.css" rel="stylesheet" type="text/css">
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
@@ -13,13 +14,14 @@
 <body>
   <div class="lightbox_container hidden" tabindex="-1">
     <div class="media_container">
-      <div class="close" role="button"><i class=" fa-solid fa-xmark" aria-label="Fermer la lightbox" tabindex="0"></i>
+      <div class="close" role="button"><span class=" fa-solid fa-xmark" aria-label="Fermer la lightbox"
+          tabindex="0"></span>
       </div>
-      <div class="previous"><i class="fa-solid fa-chevron-left" role="button" tabindex="0"
-          aria-label="Afficher le média précédent"></i></div>
+      <div class="previous"><span class="fa-solid fa-chevron-left" role="button" tabindex="0"
+          aria-label="Afficher le média précédent"></span></div>
       <div class="media" tabindex="-1"> </div>
-      <div class="next"><i class="fa-solid fa-chevron-right" role="button" aria-label="Afficher le média suivant"
-          tabindex="0"></i>
+      <div class="next"><span class="fa-solid fa-chevron-right" role="button" aria-label="Afficher le média suivant"
+          tabindex="0"></span>
       </div>
       <div class="lightbox_legend"></div>
     </div>
@@ -83,6 +85,7 @@
   <script src="scripts/factories/photographer.js"></script>
   <script src="scripts/pages/photographer.js"></script>
   <script src="scripts/utils/contactForm.js"></script>
+  <script src="scripts/utils/tri.js"></script>
 </body>
 
 </html>

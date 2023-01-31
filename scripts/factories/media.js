@@ -86,7 +86,7 @@ function galleryFactory(data, index) {
         love.setAttribute('role', 'button')
         // love.setAttribute("tabindex", "0");
         nblove.appendChild(love)
-        const tag_i = document.createElement('i')
+        const tag_i = document.createElement('span')
         tag_i.classList.add(Classicone1, Classicone2)
         tag_i.setAttribute('aria-label', 'Aimer cette photo')
         tag_i.setAttribute('tabindex', '0')
@@ -163,7 +163,7 @@ function galleryFactory(data, index) {
         love.setAttribute('role', 'button')
         // love.setAttribute("tabindex", "0");
         nblove.appendChild(love)
-        const tag_i = document.createElement('i')
+        const tag_i = document.createElement('span')
         tag_i.classList.add(Classicone1, Classicone2)
         tag_i.setAttribute('aria-label', 'Aimer cette vidéo')
         tag_i.setAttribute('tabindex', '0')
@@ -465,8 +465,7 @@ function GestFocus() {
     /* Navigation à la souris (utilisaiton de la touche "TAB" et "Shift + TAB") :
     "boucle" sur les contrôles */
     const media_modal = document.querySelector('.lightbox_container')
-    const focusableElements = document.querySelectorAll('.media, .close i, .previous i, .next i')
-    // focusableElements = Array.prototype.slice.call(focusableElements)
+    const focusableElements = document.querySelectorAll('.media, .close span, .previous span, .next span')
     const firstElement = focusableElements[0]
     const lastElement = focusableElements[focusableElements.length - 1]
     firstElement.focus()

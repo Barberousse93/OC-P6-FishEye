@@ -82,7 +82,7 @@ function GestionLikes () {
     // gestion du "click" sur les coeurs de la galerie
     // Incrémentation / décrémentation des scores de chaque média (nbLikesMedia) et
     // score global du Photographe (nbLikesPhotographer)
-    const likes = document.querySelectorAll('.love i')
+    const likes = document.querySelectorAll('.love span')
     likes.forEach(item => item.addEventListener('click', () => {
         item.classList.toggle('checked')
 
@@ -129,8 +129,6 @@ function GestionLikes () {
 
 async function getMedias (ID) {
     medias = []
-    // const PhotographerMedias = []
-
     const JSONFile = 'data/photographers.json'
 
     await fetch(JSONFile)
@@ -146,7 +144,6 @@ async function getMedias (ID) {
             console.log(err)
         })
 
-    // PhotographerMedias = medias
     return medias
 }
 
@@ -201,159 +198,136 @@ window.addEventListener('keydown', (e) => {
 function sortSection () {
     const main = document.getElementById('main')
     const sortSection = document.createElement('section')
-    sortSection.classList.add('sort_container')
+    sortSection.classList.add('sortBar')
     main.appendChild(sortSection)
 
-    // Liste "Trier par"
-    const div1 = document.createElement('div')
-    sortSection.appendChild(div1)
-    const sortLabel = document.createElement('label')
-    sortLabel.setAttribute('for', 'sortBy')
-    sortLabel.innerText = 'Trier par : '
-    div1.appendChild(sortLabel)
-    const sortSelect = document.createElement('select')
-    sortSelect.setAttribute('name', 'sortBy')
-    sortSelect.setAttribute('id', 'sortBy')
-    sortSelect.setAttribute('aria-label', 'Tri principal')
-    sortSelect.addEventListener('change', () => {
-        sorting()
-    })
-    sortSection.appendChild(sortSelect)
+    // Liste déroulante "Trier par"
+    const divTri = document.createElement('div')
+    divTri.setAttribute('id', 'tri')
+    divTri.classList.add('tri')
+    sortSection.appendChild(divTri)
 
-    div1.appendChild(sortSelect)
-    const sortOption0 = document.createElement('option')
-    sortOption0.setAttribute('value', 'none')
-    sortOption0.innerText = 'Pas de tri'
-    sortSelect.appendChild(sortOption0)
-    const sortOption1 = document.createElement('option')
-    sortOption1.setAttribute('value', 'likes')
-    sortOption1.innerText = 'Popularité'
-    sortSelect.appendChild(sortOption1)
-    const sortOption2 = document.createElement('option')
-    sortOption2.setAttribute('value', 'date')
-    sortOption2.innerText = 'Date'
-    sortSelect.appendChild(sortOption2)
-    const sortOption3 = document.createElement('option')
-    sortOption3.setAttribute('value', 'title')
-    sortOption3.innerText = 'Titre'
-    sortSelect.appendChild(sortOption3)
-    const sortOption4 = document.createElement('option')
-    sortOption4.setAttribute('value', 'price')
-    sortOption4.innerText = 'Prix'
-    sortSelect.appendChild(sortOption4)
+    const divEntete = document.createElement('div')
+    divEntete.classList.add('entete')
+    divTri.appendChild(divEntete)
 
-    // Liste ordre
-    const div2 = document.createElement('div')
-    div2.classList.add('divOrderBy')
-    sortSection.appendChild(div2)
-    const orderLabel = document.createElement('label')
-    orderLabel.setAttribute('for', 'order')
-    orderLabel.innerText = 'Ordre : '
-    div2.appendChild(orderLabel)
-    const orderSelect = document.createElement('select')
-    orderSelect.setAttribute('name', 'orderBy')
-    orderSelect.setAttribute('id', 'orderBy')
-    orderSelect.setAttribute('aria-label', 'Ordre de tri')
-    orderSelect.addEventListener('change', () => {
-        sorting()
-    })
-    div2.appendChild(orderSelect)
-    const orderOption1 = document.createElement('option')
-    orderOption1.setAttribute('value', 'ASC')
-    orderOption1.innerText = 'Ascendant'
-    orderSelect.appendChild(orderOption1)
-    const orderOption2 = document.createElement('option')
-    orderOption2.setAttribute('value', 'DESC')
-    orderOption2.innerText = 'Descendant'
-    orderSelect.appendChild(orderOption2)
-    div2.classList.add('hidden')
-}
+    const labelTri = document.createElement('label')
+    labelTri.setAttribute('for', 'listeTri')
+    labelTri.classList.add('label')
+    labelTri.setAttribute('aria-label', 'Trier par')
+    labelTri.innerText = 'Trier par : '
+    divEntete.appendChild(labelTri)
 
-//* ***************** Algorithme de tri ******************//
-async function sorting () {
-    const params = (new URL(document.location)).searchParams
-    const ID = params.get('id')
-    data = await getMedias(ID)
-    const divOrderBy = document.querySelector('.divOrderBy')
-    const sortBy = document.getElementById('sortBy').value
-    if (sortBy !== 'none') {
-        divOrderBy.classList.remove('hidden')
-    } else {
-        divOrderBy.classList.add('hidden')
-    }
-    const orderBy = document.getElementById('orderBy').value
+    const choixTri = document.createElement('button')
+    choixTri.setAttribute('id', 'choixTri')
+    choixTri.classList.add('itemListe')
+    choixTri.setAttribute('role', 'listbox')
+    choixTri.setAttribute('aria-haspopup', 'listbox')
+    choixTri.setAttribute('aria-expanded', 'false')
+    choixTri.setAttribute('value', 'none')
+    choixTri.innerText = 'Pas de tri'
+    divEntete.appendChild(choixTri)
 
-    switch (orderBy) {
-        case 'ASC':
-            switch (sortBy) {
-                case 'likes':
-                    data.sort((a, b) => a.likes - b.likes)
-                    break
-                case 'title':
-                    data.sort((a, b) => {
-                        if (a.title > b.title) {
-                            return 1
-                        }
-                        if (a.title < b.title) {
-                            return -1
-                        }
-                        return 0
-                    })
-                    break
-                case 'date':
-                    data.sort((a, b) => {
-                        if (a.date > b.date) {
-                            return 1
-                        }
-                        if (a.date < b.date) {
-                            return -1
-                        }
-                        return 0
-                    })
-                    break
-                case 'price':
-                    data.sort((a, b) => a.price - b.price)
-                    break
-            }
-            break
-        case 'DESC':
-            switch (sortBy) {
-                case 'likes':
-                    data.sort((a, b) => b.likes - a.likes)
-                    break
-                case 'title':
-                    data.sort((a, b) => {
-                        if (a.title < b.title) {
-                            return 1
-                        }
-                        if (a.title > b.title) {
-                            return -1
-                        }
-                        return 0
-                    })
-                    break
-                case 'date':
-                    data.sort((a, b) => {
-                        if (a.date < b.date) {
-                            return 1
-                        }
-                        if (a.date > b.date) {
-                            return -1
-                        }
-                        return 0
-                    })
-                    break
-                case 'price':
-                    data.sort((a, b) => b.price - a.price)
-                    break
-            }
-            break
-    }
+    const listeTri = document.createElement('ul')
+    listeTri.setAttribute('id', 'listeTri')
+    listeTri.classList.add('hidden')
+    divTri.appendChild(listeTri)
 
-    const Nb_likes = document.querySelector('.Nb_likes')
-    Nb_likes.innerText = 0
-    const gallery = document.querySelector('.gallery')
-    gallery.remove()
-    await displayGallery(data)
-    GestionLikes()
+    const itemListe0 = document.createElement('li')
+    itemListe0.setAttribute('id', '0')
+    itemListe0.classList.add('itemListe')
+    itemListe0.setAttribute('tabindex', '0')
+    itemListe0.setAttribute('value', 'none')
+    itemListe0.setAttribute('aria-label', 'Pas de tri')
+    itemListe0.innerText = 'Pas de tri'
+    listeTri.appendChild(itemListe0)
+
+    const itemListe1 = document.createElement('li')
+    itemListe1.setAttribute('id', '1')
+    itemListe1.classList.add('itemListe')
+    itemListe1.setAttribute('tabindex', '0')
+    itemListe1.setAttribute('value', 'likes')
+    itemListe1.setAttribute('aria-label', 'Tri par popularité')
+    itemListe1.innerText = 'Popularité'
+    listeTri.appendChild(itemListe1)
+
+    const itemListe2 = document.createElement('li')
+    itemListe2.setAttribute('id', '2')
+    itemListe2.classList.add('itemListe')
+    itemListe2.setAttribute('tabindex', '0')
+    itemListe2.setAttribute('value', 'date')
+    itemListe2.setAttribute('aria-label', 'Tri par date')
+    itemListe2.innerText = 'Date'
+    listeTri.appendChild(itemListe2)
+
+    const itemListe3 = document.createElement('li')
+    itemListe3.setAttribute('id', '3')
+    itemListe3.classList.add('itemListe')
+    itemListe3.setAttribute('tabindex', '0')
+    itemListe3.setAttribute('value', 'title')
+    itemListe3.setAttribute('aria-label', 'Tri par titre')
+    itemListe3.innerText = 'Titre'
+    listeTri.appendChild(itemListe3)
+
+    const itemListe4 = document.createElement('li')
+    itemListe4.setAttribute('id', '4')
+    itemListe4.classList.add('itemListe')
+    itemListe4.setAttribute('tabindex', '0')
+    itemListe4.setAttribute('value', 'price')
+    itemListe4.setAttribute('aria-label', 'Tri par prix')
+    itemListe4.innerText = 'Prix'
+    listeTri.appendChild(itemListe4)
+
+    // Liste "ordre de tri"
+    const divOrdre = document.createElement('div')
+    divOrdre.setAttribute('id', 'ordre')
+    divOrdre.classList.add('tri')
+    divOrdre.classList.add('hidden')
+    sortSection.appendChild(divOrdre)
+
+    const divEntete2 = document.createElement('div')
+    divEntete2.classList.add('entete')
+    divOrdre.appendChild(divEntete2)
+
+    const labelOrdre = document.createElement('label')
+    labelOrdre.setAttribute('for', 'listeTri')
+    labelOrdre.classList.add('label')
+    labelOrdre.setAttribute('aria-label', 'Ordre de tri')
+    labelOrdre.innerText = 'Ordre de tri : '
+    divEntete2.appendChild(labelOrdre)
+
+    const choixOrdre = document.createElement('button')
+    choixOrdre.setAttribute('id', 'choixOrdre')
+    choixOrdre.classList.add('itemListe')
+    choixOrdre.setAttribute('role', 'listbox')
+    choixOrdre.setAttribute('aria-haspopup', 'listbox')
+    choixOrdre.setAttribute('aria-expanded', 'false')
+    choixOrdre.setAttribute('value', 'ASC')
+    choixOrdre.innerText = 'Ascendant'
+    divEntete2.appendChild(choixOrdre)
+
+    const listeOrdre = document.createElement('ul')
+    listeOrdre.setAttribute('id', 'listeTri')
+    listeOrdre.classList.add('hidden')
+    divOrdre.appendChild(listeOrdre)
+
+    const itemListe00 = document.createElement('li')
+    itemListe00.setAttribute('id', '00')
+    itemListe00.classList.add('itemListe')
+    itemListe00.setAttribute('tabindex', '0')
+    itemListe00.setAttribute('value', 'ASC')
+    itemListe00.setAttribute('aria-label', 'Ordre Ascendant')
+    itemListe00.innerText = 'Ascendant'
+    listeOrdre.appendChild(itemListe00)
+
+    const itemListe01 = document.createElement('li')
+    itemListe01.setAttribute('id', '01')
+    itemListe01.classList.add('itemListe')
+    itemListe01.setAttribute('tabindex', '0')
+    itemListe01.setAttribute('value', 'DESC')
+    itemListe01.setAttribute('aria-label', 'Ordre descendant')
+    itemListe01.innerText = 'Descendant'
+    listeOrdre.appendChild(itemListe01)
+
+    eventTri(choixTri, choixOrdre, listeTri, listeOrdre, [itemListe0, itemListe1, itemListe2, itemListe3, itemListe4], [itemListe00, itemListe01], divOrdre)
 }
