@@ -75,8 +75,11 @@ label {
     font-size: 18px;
     height: 69px;
     width: 170px;
+    transition: all 0.3s ease-in-out
 }
 
-.itemListe:hover {
+.itemListe:hover,
+.itemListe:focus {
     background-color: #DB8876;
+    color: black;
 }

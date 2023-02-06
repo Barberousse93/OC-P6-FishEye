@@ -44,7 +44,6 @@ choixTri.addEventListener('keydown', (e) => {
 // Ajout des événements 'click' et "Enter" sur les élément de la liste
 for (let i = 0; i <= itemTri.length - 1; i++) {
     itemTri[i].addEventListener('click', () => {
-        console.log(itemTri[i].getAttribute('value'))
         choixTri.setAttribute('value', itemTri[i].getAttribute('value'))
         choixTri.innerText = itemTri[i].innerText
         sorting()
@@ -58,12 +57,16 @@ for (let i = 0; i <= itemTri.length - 1; i++) {
     })
     itemTri[i].addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            console.log(itemTri[i].getAttribute('value'))
             choixTri.setAttribute('value', itemTri[i].getAttribute('value'))
             choixTri.innerText = itemTri[i].innerText
             sorting()
             listeTri.classList.toggle('hidden')
             choixTri.setAttribute('aria-expanded', 'false')
+            if (choixTri.getAttribute('value') === 'none') {
+                divOrdre.classList.add('hidden')
+            } else {
+                divOrdre.classList.remove('hidden')
+            }
         }
     })
 }
@@ -104,7 +107,6 @@ choixOrdre.addEventListener('keydown', (e) => {
 
 for (let i = 0; i <= itemOrdre.length - 1; i++) {
     itemOrdre[i].addEventListener('click', () => {
-        console.log(itemOrdre[i].getAttribute('value'))
         choixOrdre.setAttribute('value', itemOrdre[i].getAttribute('value'))
         choixOrdre.innerText = itemOrdre[i].innerText
         sorting()
@@ -113,7 +115,6 @@ for (let i = 0; i <= itemOrdre.length - 1; i++) {
     })
     itemOrdre[i].addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            console.log(itemOrdre[i].getAttribute('value'))
             choixOrdre.setAttribute('value', itemOrdre[i].getAttribute('value'))
             choixOrdre.innerText = itemOrdre[i].innerText
             sorting()
