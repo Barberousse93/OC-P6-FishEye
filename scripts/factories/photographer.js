@@ -10,7 +10,6 @@ function photographerFactory (data) {
         // Constitution du DOM
         const linkNewPage = `./photographer.html?id=${id}`
         const article = document.createElement('article')
-        article.setAttribute('tabindex', '0')
         const tagA = document.createElement('a')
         tagA.setAttribute('href', linkNewPage)
         tagA.setAttribute('tabindex', '0')
@@ -22,8 +21,11 @@ function photographerFactory (data) {
         img.setAttribute('aria-label', 'Naviguer vers la page de ' + name)
         const h2 = document.createElement('h2')
         const h3 = document.createElement('h3')
+        h3.setAttribute('tabindex', '0')
         const h4 = document.createElement('h4')
+        h4.setAttribute('tabindex', '0')
         const p = document.createElement('p')
+        p.setAttribute('tabindex', '0')
         h2.textContent = name
         h3.textContent = city + ', ' + country
         h4.textContent = tagline
