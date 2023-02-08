@@ -80,7 +80,7 @@
 .dropdownIcone {
     position: absolute;
     right: 0px;
-    content: url(/assets/icons/dropdowon.jpg);
+    content: url(../assets/icons/dropdowon.jpg);
     padding: 20px;
     top: 10px;
 }
@@ -88,7 +88,7 @@
 .dropupIcone {
     position: absolute;
     right: 0px;
-    content: url(/assets/icons/dropup.jpg);
+    content: url(../assets/icons/dropup.jpg);
     padding: 20px;
     top: 10px;
 }
