@@ -41,34 +41,6 @@
     display: none;
 }
 
-/* #choixTri {
-    position: absolute;
-    left: 125px;
-    top: 20px;
-    z-index: 1;
-} */
-
-/* #choixOdre {
-    position: absolute;
-    left: 125px;
-    top: 20px;
-    z-index: 1;
-} */
-
-/* #choixTri::after,
-#choixOrdre::after {
-    Chevron bas 
-    font-family: "Font Awesome 5 Free";
-    font-weight: 700;
-    content: "\f078";
-    padding-left: 30px;
-} */
-
-/* #listeTri li,
-#listeOrdre li {
-    list-style: none;
-} */
-
 .libelleTri {
     margin-right: 10px;
 }

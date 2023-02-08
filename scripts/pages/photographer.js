@@ -218,16 +218,6 @@ function sortSection () {
     labelTri.innerText = 'Trier par : '
     divEntete.appendChild(labelTri)
 
-    // const choixTri = document.createElement('button')
-    // choixTri.setAttribute('id', 'choixTri')
-    // choixTri.classList.add('itemListe')
-    // choixTri.setAttribute('role', 'listbox')
-    // choixTri.setAttribute('aria-haspopup', 'listbox')
-    // choixTri.setAttribute('aria-expanded', 'false')
-    // choixTri.setAttribute('value', 'none')
-    // choixTri.innerText = 'Pas de tri'
-    // divEntete.appendChild(choixTri)
-
     const listeTri = document.createElement('div')
     listeTri.setAttribute('id', 'listeTri')
     listeTri.classList.add('itemListe')
@@ -316,16 +306,6 @@ function sortSection () {
     labelOrdre.setAttribute('aria-label', 'Ordre de tri')
     labelOrdre.innerText = 'Ordre de tri : '
     divEntete2.appendChild(labelOrdre)
-
-    // const choixOrdre = document.createElement('button')
-    // choixOrdre.setAttribute('id', 'choixOrdre')
-    // choixOrdre.classList.add('itemListe')
-    // choixOrdre.setAttribute('role', 'listbox')
-    // choixOrdre.setAttribute('aria-haspopup', 'listbox')
-    // choixOrdre.setAttribute('aria-expanded', 'false')
-    // choixOrdre.setAttribute('value', 'ASC')
-    // choixOrdre.innerText = 'Ascendant'
-    // divEntete2.appendChild(choixOrdre)
 
     const listeOrdre = document.createElement('div')
     listeOrdre.setAttribute('id', 'listeOrdre')
