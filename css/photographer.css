@@ -308,7 +308,7 @@ form textarea {
     }
 
     50% {
-        transform: rotate(0eg);
+        transform: rotate(0deg);
     }
 
     75% {
@@ -404,7 +404,7 @@ form textarea {
 
 @keyframes LightboxShow {
     50% {
-        scale: 1.5;
+        transform: scale(1.5);
     }
 
     100% {
