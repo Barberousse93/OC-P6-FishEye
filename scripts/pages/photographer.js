@@ -218,65 +218,86 @@ function sortSection () {
     labelTri.innerText = 'Trier par : '
     divEntete.appendChild(labelTri)
 
-    const choixTri = document.createElement('button')
-    choixTri.setAttribute('id', 'choixTri')
-    choixTri.classList.add('itemListe')
-    choixTri.setAttribute('role', 'listbox')
-    choixTri.setAttribute('aria-haspopup', 'listbox')
-    choixTri.setAttribute('aria-expanded', 'false')
-    choixTri.setAttribute('value', 'none')
-    choixTri.innerText = 'Pas de tri'
-    divEntete.appendChild(choixTri)
+    // const choixTri = document.createElement('button')
+    // choixTri.setAttribute('id', 'choixTri')
+    // choixTri.classList.add('itemListe')
+    // choixTri.setAttribute('role', 'listbox')
+    // choixTri.setAttribute('aria-haspopup', 'listbox')
+    // choixTri.setAttribute('aria-expanded', 'false')
+    // choixTri.setAttribute('value', 'none')
+    // choixTri.innerText = 'Pas de tri'
+    // divEntete.appendChild(choixTri)
 
-    const listeTri = document.createElement('ul')
+    const listeTri = document.createElement('div')
     listeTri.setAttribute('id', 'listeTri')
-    listeTri.classList.add('hidden')
-    divTri.appendChild(listeTri)
+    listeTri.classList.add('itemListe')
+    listeTri.setAttribute('role', 'listbox')
+    listeTri.setAttribute('aria-haspopup', 'listbox')
+    listeTri.setAttribute('aria-expanded', 'false')
+    listeTri.setAttribute('value', 'none')
+    listeTri.setAttribute('tabindex', '0')
+    divEntete.appendChild(listeTri)
 
-    const itemListe0 = document.createElement('li')
+    const iconeDropDown = document.createElement('span')
+    iconeDropDown.classList.add('icone')
+    iconeDropDown.classList.add('dropdownIcone')
+    listeTri.appendChild(iconeDropDown)
+
+    const libelleTri = document.createElement('span')
+    libelleTri.innerText = 'Pas de tri'
+    libelleTri.classList.add('libelleTri')
+    libelleTri.setAttribute('value', 'none')
+    listeTri.appendChild(libelleTri)
+
+    const listeItemsTri = document.createElement('div')
+    listeItemsTri.classList.add('listItemsTri')
+    listeItemsTri.classList.add('hidden')
+    listeTri.appendChild(listeItemsTri)
+
+    const itemListe0 = document.createElement('div')
     itemListe0.setAttribute('id', '0')
     itemListe0.classList.add('itemListe')
     itemListe0.setAttribute('tabindex', '0')
     itemListe0.setAttribute('value', 'none')
     itemListe0.setAttribute('aria-label', 'Pas de tri')
     itemListe0.innerText = 'Pas de tri'
-    listeTri.appendChild(itemListe0)
+    listeItemsTri.appendChild(itemListe0)
 
-    const itemListe1 = document.createElement('li')
+    const itemListe1 = document.createElement('div')
     itemListe1.setAttribute('id', '1')
     itemListe1.classList.add('itemListe')
     itemListe1.setAttribute('tabindex', '0')
     itemListe1.setAttribute('value', 'likes')
     itemListe1.setAttribute('aria-label', 'Tri par popularité')
     itemListe1.innerText = 'Popularité'
-    listeTri.appendChild(itemListe1)
+    listeItemsTri.appendChild(itemListe1)
 
-    const itemListe2 = document.createElement('li')
+    const itemListe2 = document.createElement('div')
     itemListe2.setAttribute('id', '2')
     itemListe2.classList.add('itemListe')
     itemListe2.setAttribute('tabindex', '0')
     itemListe2.setAttribute('value', 'date')
     itemListe2.setAttribute('aria-label', 'Tri par date')
     itemListe2.innerText = 'Date'
-    listeTri.appendChild(itemListe2)
+    listeItemsTri.appendChild(itemListe2)
 
-    const itemListe3 = document.createElement('li')
+    const itemListe3 = document.createElement('div')
     itemListe3.setAttribute('id', '3')
     itemListe3.classList.add('itemListe')
     itemListe3.setAttribute('tabindex', '0')
     itemListe3.setAttribute('value', 'title')
     itemListe3.setAttribute('aria-label', 'Tri par titre')
     itemListe3.innerText = 'Titre'
-    listeTri.appendChild(itemListe3)
+    listeItemsTri.appendChild(itemListe3)
 
-    const itemListe4 = document.createElement('li')
+    const itemListe4 = document.createElement('div')
     itemListe4.setAttribute('id', '4')
     itemListe4.classList.add('itemListe')
     itemListe4.setAttribute('tabindex', '0')
     itemListe4.setAttribute('value', 'price')
     itemListe4.setAttribute('aria-label', 'Tri par prix')
     itemListe4.innerText = 'Prix'
-    listeTri.appendChild(itemListe4)
+    listeItemsTri.appendChild(itemListe4)
 
     // Liste "ordre de tri"
     const divOrdre = document.createElement('div')
@@ -290,44 +311,66 @@ function sortSection () {
     divOrdre.appendChild(divEntete2)
 
     const labelOrdre = document.createElement('label')
-    labelOrdre.setAttribute('for', 'listeTri')
+    labelOrdre.setAttribute('for', 'listeOrdre')
     labelOrdre.classList.add('label')
     labelOrdre.setAttribute('aria-label', 'Ordre de tri')
     labelOrdre.innerText = 'Ordre de tri : '
     divEntete2.appendChild(labelOrdre)
 
-    const choixOrdre = document.createElement('button')
-    choixOrdre.setAttribute('id', 'choixOrdre')
-    choixOrdre.classList.add('itemListe')
-    choixOrdre.setAttribute('role', 'listbox')
-    choixOrdre.setAttribute('aria-haspopup', 'listbox')
-    choixOrdre.setAttribute('aria-expanded', 'false')
-    choixOrdre.setAttribute('value', 'ASC')
-    choixOrdre.innerText = 'Ascendant'
-    divEntete2.appendChild(choixOrdre)
+    // const choixOrdre = document.createElement('button')
+    // choixOrdre.setAttribute('id', 'choixOrdre')
+    // choixOrdre.classList.add('itemListe')
+    // choixOrdre.setAttribute('role', 'listbox')
+    // choixOrdre.setAttribute('aria-haspopup', 'listbox')
+    // choixOrdre.setAttribute('aria-expanded', 'false')
+    // choixOrdre.setAttribute('value', 'ASC')
+    // choixOrdre.innerText = 'Ascendant'
+    // divEntete2.appendChild(choixOrdre)
 
-    const listeOrdre = document.createElement('ul')
-    listeOrdre.setAttribute('id', 'listeTri')
+    const listeOrdre = document.createElement('div')
+    listeOrdre.setAttribute('id', 'listeOrdre')
     listeOrdre.classList.add('hidden')
-    divOrdre.appendChild(listeOrdre)
+    listeOrdre.classList.add('itemListe')
+    listeOrdre.setAttribute('role', 'listbox')
+    listeOrdre.setAttribute('aria-haspopup', 'listbox')
+    listeOrdre.setAttribute('aria-expanded', 'false')
+    listeOrdre.setAttribute('value', 'ASC')
+    listeOrdre.setAttribute('tabindex', '0')
+    divEntete2.appendChild(listeOrdre)
 
-    const itemListe00 = document.createElement('li')
+    const iconeDropDown2 = document.createElement('span')
+    iconeDropDown2.classList.add('icone')
+    iconeDropDown2.classList.add('dropdownIcone')
+    listeOrdre.appendChild(iconeDropDown2)
+
+    const libelleOrdre = document.createElement('span')
+    libelleOrdre.innerText = 'Ascendant'
+    libelleOrdre.classList.add('libelleOrdre')
+    libelleOrdre.setAttribute('value', 'ASC')
+    listeOrdre.appendChild(libelleOrdre)
+
+    const listeItemsOrdre = document.createElement('div')
+    listeItemsOrdre.classList.add('listeItemsOrdre')
+    listeItemsOrdre.classList.add('hidden')
+    listeOrdre.appendChild(listeItemsOrdre)
+
+    const itemListe00 = document.createElement('div')
     itemListe00.setAttribute('id', '00')
     itemListe00.classList.add('itemListe')
     itemListe00.setAttribute('tabindex', '0')
     itemListe00.setAttribute('value', 'ASC')
     itemListe00.setAttribute('aria-label', 'Ordre Ascendant')
     itemListe00.innerText = 'Ascendant'
-    listeOrdre.appendChild(itemListe00)
+    listeItemsOrdre.appendChild(itemListe00)
 
-    const itemListe01 = document.createElement('li')
+    const itemListe01 = document.createElement('div')
     itemListe01.setAttribute('id', '01')
     itemListe01.classList.add('itemListe')
     itemListe01.setAttribute('tabindex', '0')
     itemListe01.setAttribute('value', 'DESC')
     itemListe01.setAttribute('aria-label', 'Ordre descendant')
     itemListe01.innerText = 'Descendant'
-    listeOrdre.appendChild(itemListe01)
+    listeItemsOrdre.appendChild(itemListe01)
 
-    eventTri(choixTri, choixOrdre, listeTri, listeOrdre, [itemListe0, itemListe1, itemListe2, itemListe3, itemListe4], [itemListe00, itemListe01], divOrdre)
+    eventTri(listeTri, libelleTri, listeItemsTri, listeOrdre, libelleOrdre, listeItemsOrdre, [itemListe0, itemListe1, itemListe2, itemListe3, itemListe4], [itemListe00, itemListe01], divOrdre)
 }

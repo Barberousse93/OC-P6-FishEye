@@ -8,14 +8,14 @@ function photographerFactory (data) {
 
     function getUserCardDOM () {
         // Constitution du DOM
-        const tagA = document.createElement('a')
         const linkNewPage = `./photographer.html?id=${id}`
+        const article = document.createElement('article')
+        article.setAttribute('tabindex', '0')
+        const tagA = document.createElement('a')
         tagA.setAttribute('href', linkNewPage)
         tagA.setAttribute('tabindex', '0')
-
-        const article = document.createElement('article')
-        tagA.appendChild(article)
         tagA.setAttribute('role', 'navigation')
+        article.appendChild(tagA)
         const img = document.createElement('img')
         img.setAttribute('src', picture)
         img.setAttribute('alt', 'Portrait de ' + name)
@@ -28,12 +28,12 @@ function photographerFactory (data) {
         h3.textContent = city + ', ' + country
         h4.textContent = tagline
         p.textContent = price + '€/jour'
-        article.appendChild(img)
-        article.appendChild(h2)
+        tagA.appendChild(img)
+        tagA.appendChild(h2)
         article.appendChild(h3)
         article.appendChild(h4)
         article.appendChild(p)
-        return (tagA)
+        return (article)
     }
 
     function makeHeader () {

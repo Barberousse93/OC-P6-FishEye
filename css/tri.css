@@ -22,7 +22,9 @@
     margin: 5px;
 }
 
-label {
+.label {
+    position: absolute;
+    top: 45px;
     font-weight: 700;
     font-size: 18px;
     line-height: 23px;
@@ -31,29 +33,47 @@ label {
 #listeTri,
 #listeOrdre {
     position: relative;
-    left: 50%;
+    left: 30%;
+    top: -18px;
 }
 
 .hidden {
     display: none;
 }
 
-#choixTri::after,
+/* #choixTri {
+    position: absolute;
+    left: 125px;
+    top: 20px;
+    z-index: 1;
+} */
+
+/* #choixOdre {
+    position: absolute;
+    left: 125px;
+    top: 20px;
+    z-index: 1;
+} */
+
+/* #choixTri::after,
 #choixOrdre::after {
-    /* Chevron bas */
+    Chevron bas 
     font-family: "Font Awesome 5 Free";
     font-weight: 700;
     content: "\f078";
     padding-left: 30px;
-}
+} */
 
-#listeTri li,
+/* #listeTri li,
 #listeOrdre li {
     list-style: none;
+} */
+
+.libelleTri {
+    margin-right: 10px;
 }
 
-#listeTri li:not(:last-child),
-#listeOrdre li:not(:last-child) {
+.itemListe:not(:last-child) {
     border-bottom: 2px solid white;
 }
 
@@ -62,6 +82,7 @@ label {
     justify-content: space-between;
     padding-bottom: 5px;
     align-items: center;
+    width: 400px;
 }
 
 .itemListe {
@@ -82,4 +103,20 @@ label {
 .itemListe:focus {
     background-color: #DB8876;
     color: black;
+}
+
+.dropdownIcone {
+    position: absolute;
+    right: 0px;
+    content: url(/assets/icons/dropdowon.png);
+    padding: 20px;
+    top: 10px;
+}
+
+.dropupIcone {
+    position: absolute;
+    right: 0px;
+    content: url(/assets/icons/dropup.png);
+    padding: 20px;
+    top: 10px;
 }

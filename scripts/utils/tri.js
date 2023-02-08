@@ -3,123 +3,164 @@
 /* eslint-disable no-undef */
 /* eslint-disable indent */
 
-function eventTri (choixTri, choixOrdre, listeTri, listeOrdre, itemTri, itemOrdre, divOrdre) {
+function eventTri (listeTri, libelleTri, listeItemsTri, listeOrdre, libelleOrdre, listeItemsOrdre, itemTri, itemOrdre, divOrdre) {
 // Liste de choix "trier par"
 // Evénement 'click' : affichage/masquage de la liste déroulante +
 // focus sur le premier élément de la liste
-choixTri.addEventListener('click', () => {
-    listeTri.classList.toggle('hidden')
-    if (choixTri.getAttribute('aria-expanded') === 'false') {
-        choixTri.setAttribute('aria-expanded', 'true')
+listeTri.addEventListener('click', () => {
+    listeItemsTri.classList.toggle('hidden')
+    const Icone = document.querySelector('#listeTri .icone')
+    if (listeTri.getAttribute('aria-expanded') === 'false') {
+        listeTri.setAttribute('aria-expanded', 'true')
+        Icone.classList.remove('dropdownIcone')
+        Icone.classList.add('dropupIcone')
         itemTri[0].focus()
     } else {
-        choixTri.setAttribute('aria-expanded', 'false')
+        listeTri.setAttribute('aria-expanded', 'false')
+        Icone.classList.add('dropdownIcone')
+        Icone.classList.remove('dropupIcone')
     }
     // Fermer la liste 'ordre' si ouverte
-    if (!listeOrdre.classList.contains('hidden')) {
-        listeOrdre.classList.add('hidden')
+    if (!listeItemsOrdre.classList.contains('hidden')) {
+        listeItemsOrdre.classList.add('hidden')
     }
 })
 
 // Evénement 'Enter' : affichage/masquage de la liste déroulante +
 // focus sur le premier élément de la liste
-choixTri.addEventListener('keydown', (e) => {
+listeTri.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
-        listeTri.classList.toggle('hidden')
-        if (choixTri.getAttribute('aria-expanded') === 'false') {
-            choixTri.setAttribute('aria-expanded', 'true')
+        const Icone = document.querySelector('#listeTri .icone')
+        listeItemsTri.classList.toggle('hidden')
+        if (listeTri.getAttribute('aria-expanded') === 'false') {
+            listeTri.setAttribute('aria-expanded', 'true')
+            Icone.classList.remove('dropdownIcone')
+            Icone.classList.add('dropupIcone')
             itemTri[0].focus()
         } else {
-            choixTri.setAttribute('aria-expanded', 'false')
-            listeTri.classList.toggle('hidden')
+            listeTri.setAttribute('aria-expanded', 'false')
+            listeItemsTri.classList.toggle('hidden')
+            Icone.classList.add('dropdownIcone')
+            Icone.classList.remove('dropupIcone')
         }
 
         // Fermer la liste 'ordre' si ouverte
-    if (!listeOrdre.classList.contains('hidden')) {
-        listeOrdre.classList.add('hidden')
+    if (!listeItemsOrdre.classList.contains('hidden')) {
+        listeItemsOrdre.classList.add('hidden')
     }
     }
 })
 
 // Ajout des événements 'click' et "Enter" sur les élément de la liste
 for (let i = 0; i <= itemTri.length - 1; i++) {
-    itemTri[i].addEventListener('click', () => {
-        choixTri.setAttribute('value', itemTri[i].getAttribute('value'))
-        choixTri.innerText = itemTri[i].innerText
+    itemTri[i].addEventListener('click', (e) => {
+        e.stopPropagation()
+        listeTri.setAttribute('value', itemTri[i].getAttribute('value'))
+        libelleTri.innerText = itemTri[i].innerText
         sorting()
-        listeTri.classList.toggle('hidden')
-        choixTri.setAttribute('aria-expanded', 'false')
-        if (choixTri.getAttribute('value') === 'none') {
+        listeItemsTri.classList.toggle('hidden')
+        listeTri.setAttribute('aria-expanded', 'false')
+        const Icone = document.querySelector('#listeTri .icone')
+        Icone.classList.add('dropdownIcone')
+        Icone.classList.remove('dropupIcone')
+        if (listeTri.getAttribute('value') === 'none') {
             divOrdre.classList.add('hidden')
+            listeOrdre.classList.add('hidden')
         } else {
             divOrdre.classList.remove('hidden')
+            listeOrdre.classList.remove('hidden')
         }
     })
     itemTri[i].addEventListener('keydown', (e) => {
+        e.stopPropagation()
         if (e.key === 'Enter') {
-            choixTri.setAttribute('value', itemTri[i].getAttribute('value'))
-            choixTri.innerText = itemTri[i].innerText
+            e.stopPropagation()
+            listeTri.setAttribute('value', itemTri[i].getAttribute('value'))
+            libelleTri.innerText = itemTri[i].innerText
             sorting()
-            listeTri.classList.toggle('hidden')
-            choixTri.setAttribute('aria-expanded', 'false')
-            if (choixTri.getAttribute('value') === 'none') {
+            listeItemsTri.classList.toggle('hidden')
+            listeTri.setAttribute('aria-expanded', 'false')
+            const Icone = document.querySelector('#listeTri .icone')
+            Icone.classList.add('dropdownIcone')
+            Icone.classList.remove('dropupIcone')
+            if (listeTri.getAttribute('value') === 'none') {
                 divOrdre.classList.add('hidden')
+                listeOrdre.classList.add('hidden')
             } else {
                 divOrdre.classList.remove('hidden')
+                listeOrdre.classList.remove('hidden')
             }
         }
     })
 }
 
 // Liste de choix "Ascendant/descendant"
-choixOrdre.addEventListener('click', () => {
-    listeOrdre.classList.toggle('hidden')
-    if (choixOrdre.getAttribute('aria-expanded') === 'false') {
-        choixOrdre.setAttribute('aria-expanded', 'true')
+listeOrdre.addEventListener('click', (e) => {
+    listeItemsOrdre.classList.toggle('hidden')
+    const Icone2 = document.querySelector('#listeOrdre .icone')
+    if (listeOrdre.getAttribute('aria-expanded') === 'false') {
+        listeOrdre.setAttribute('aria-expanded', 'true')
+        Icone2.classList.remove('dropdownIcone')
+        Icone2.classList.add('dropupIcone')
         itemOrdre[0].focus()
     } else {
-        choixOrdre.setAttribute('aria-expanded', 'false')
+        listeOrdre.setAttribute('aria-expanded', 'false')
+        Icone2.classList.add('dropdownIcone')
+        Icone2.classList.remove('dropupIcone')
     }
 
     // Fermer la liste 'tri' si ouverte
-    if (!listeTri.classList.contains('hidden')) {
-        listeTri.classList.add('hidden')
+    if (!listeItemsTri.classList.contains('hidden')) {
+        listeItemsTri.classList.add('hidden')
     }
 })
 
-choixOrdre.addEventListener('keydown', (e) => {
+listeOrdre.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
-        listeOrdre.classList.toggle('hidden')
-        if (choixOrdre.getAttribute('aria-expanded') === 'false') {
-            choixOrdre.setAttribute('aria-expanded', 'true')
+        const Icone2 = document.querySelector('#listeOrdre .icone')
+        listeItemsOrdre.classList.toggle('hidden')
+        if (listeOrdre.getAttribute('aria-expanded') === 'false') {
+            listeOrdre.setAttribute('aria-expanded', 'true')
+            Icone2.classList.remove('dropdownIcone')
+            Icone2.classList.add('dropupIcone')
             itemOrdre[0].focus()
         } else {
-            choixOrdre.setAttribute('aria-expanded', 'false')
-            listeOrdre.classList.toggle('hidden')
+            listeOrdre.setAttribute('aria-expanded', 'false')
+            listeItemsOrdre.classList.toggle('hidden')
+            Icone2.classList.add('dropdownIcone')
+            Icone2.classList.remove('dropupIcone')
         }
 
         // Fermer la liste 'tri' si ouverte
-    if (!listeTri.classList.contains('hidden')) {
-        listeTri.classList.add('hidden')
+    if (!listeItemsTri.classList.contains('hidden')) {
+        listeItemsTri.classList.add('hidden')
     }
     }
 })
 
 for (let i = 0; i <= itemOrdre.length - 1; i++) {
-    itemOrdre[i].addEventListener('click', () => {
-        choixOrdre.setAttribute('value', itemOrdre[i].getAttribute('value'))
-        choixOrdre.innerText = itemOrdre[i].innerText
+    itemOrdre[i].addEventListener('click', (e) => {
+        e.stopPropagation()
+        listeOrdre.setAttribute('value', itemOrdre[i].getAttribute('value'))
+        libelleOrdre.innerText = itemOrdre[i].innerText
         sorting()
-        listeOrdre.classList.toggle('hidden')
-        choixOrdre.setAttribute('aria-expanded', 'false')
+        listeItemsOrdre.classList.toggle('hidden')
+        listeOrdre.setAttribute('aria-expanded', 'false')
+        const Icone2 = document.querySelector('#listeOrdre .icone')
+        Icone2.classList.add('dropdownIcone')
+        Icone2.classList.remove('dropupIcone')
     })
     itemOrdre[i].addEventListener('keydown', (e) => {
+        e.stopPropagation()
         if (e.key === 'Enter') {
-            choixOrdre.setAttribute('value', itemOrdre[i].getAttribute('value'))
-            choixOrdre.innerText = itemOrdre[i].innerText
+            listeOrdre.setAttribute('value', itemOrdre[i].getAttribute('value'))
+            libelleOrdre.innerText = itemOrdre[i].innerText
             sorting()
-            listeOrdre.classList.toggle('hidden')
-            choixOrdre.setAttribute('aria-expanded', 'false')
+            listeItemsOrdre.classList.toggle('hidden')
+            listeOrdre.setAttribute('aria-expanded', 'false')
+            const Icone2 = document.querySelector('#listeOrdre .icone')
+            Icone2.classList.add('dropdownIcone')
+            Icone2.classList.remove('dropupIcone')
         }
     })
 }
@@ -130,9 +171,11 @@ async function sorting () {
     const params = (new URL(document.location)).searchParams
     const ID = params.get('id')
     data = await getMedias(ID)
-    const sortBy = document.getElementById('choixTri').value
-    const orderBy = document.getElementById('choixOrdre').value
 
+    const sortBy = document.querySelector('#listeTri').getAttribute('value')
+    console.log(sortBy)
+    const orderBy = document.querySelector('#listeOrdre').getAttribute('value')
+    console.log(orderBy)
     switch (orderBy) {
         case 'ASC':
             switch (sortBy) {

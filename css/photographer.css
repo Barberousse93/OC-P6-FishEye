@@ -113,8 +113,9 @@
 
 .thumbnail video {
     margin: auto;
-    max-width: 350px;
-    max-height: 300px;
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
     border-radius: 5px;
     transition: all 0.3s;
     cursor: pointer;
@@ -122,8 +123,8 @@
 
 .thumbnail img {
     margin: auto;
-    max-width: 350px;
-    max-height: 300px;
+    width: 350px;
+    height: 300px;
     border-radius: 5px;
     object-fit: cover;
     transition: all 0.3s;
